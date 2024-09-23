@@ -2,8 +2,11 @@
 """function for plot."""
 import matplotlib.pyplot as plt
 import numpy as np
-from grid_search import get_best_parameters
 
+def get_best_parameters(w0, w1, losses):
+    """Get the best w from the result of grid search."""
+    min_row, min_col = np.unravel_index(np.argmin(losses), losses.shape)
+    return losses[min_row, min_col], w0[min_row], w1[min_col]
 
 def prediction(w0, w1, mean_x, std_x):
     """Get the regression line from the model."""
