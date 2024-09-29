@@ -34,6 +34,7 @@ def grid_search(y, tx, w0, w1):
             losses[i][j] = compute_loss(y,tx,np.array([w0[i], w1[j]]))
     return losses
 
+
 from helpers import build_model_data
 w0, w1 = generate_w(200)
 y, tx = build_model_data(np.arange(180, 200), np.arange(50, 80, 1.5))

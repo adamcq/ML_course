@@ -15,5 +15,12 @@ def compute_subgradient_mae(y, tx, w):
     # ***************************************************
     # INSERT YOUR CODE HERE
     # TODO: compute subgradient gradient vector for MAE
+    N = y.shape[0]
+    e = y - tx.dot(w)
+
+    # Replace the indices i, where e[i] == 0 with a random number from uniform[-1,1)
+    e[e==0] = np.random.uniform(-1, 1, np.sum(e==0))
+
+    return -1/N * tx.T.dot(e)
     # ***************************************************
     raise NotImplementedError
