@@ -11,7 +11,14 @@ def plot_fitted_curve(y, x, weights, degree, ax):
     xvals = np.arange(min(x) - 0.1, max(x) + 0.1, 0.1)
     tx = build_poly(xvals, degree)
     f = tx.dot(weights)
+    print('tx.shape, x.shape, y.shape, weights.shape, degree', tx.shape, x.shape, y.shape, weights.shape, degree)
     ax.plot(xvals, f)
+    # print('shapes x, tx, y: ', x.shape, tx.shape, y.shape  )
+    # print(x)
+    # poly = build_poly(x, degree)
+    # for i in range(poly.shape[1]):
+    #     ax.scatter(x, poly[:,i], color="r", s=12, facecolors="g", marker='x')
+    
     ax.set_xlabel("x")
     ax.set_ylabel("y")
     ax.set_title("Polynomial degree " + str(degree))

@@ -16,6 +16,7 @@ def build_poly(x, degree):
     poly = np.ones((N, degree+1))
     for j in range(1, degree+1):
         poly[:,j] = poly[:,j-1]*x
+    # print('build_poly log: x.shape, tx.shape', x.shape, poly.shape)
     return poly
     # ***************************************************
     raise NotImplementedError
